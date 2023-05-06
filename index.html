@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/ApT3ggedzje+r7gBmxFB6/5g5m/t2eK9j4/v4d" crossorigin="anonymous">
+  <style>
+    :root {
+      --bg: #121212;
+      --text: #f5f5f5;
+      --accent: #E86A20;
+      --subtle-accent: #f5a571;
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --glow-color: #fff;
+      --glow-intensity: 0.4;
+      --glow-duration: 1s;
+      --accent2: #ff0079;
+      --subtle-accent: #8c1aff;
+
+
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease-in-out;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease-in-out;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    /* Navigation */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: linear-gradient(145deg, var(--accent) 0%, var(--subtle-accent) 100%);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .nav ul {
+      display: flex;
+      list-style-type: none;
+    }
+
+    .nav ul li {
+      margin-left: 1rem;
+      padding: 0.5rem;
+      border-radius: 5px;
+    }
+
+
+    /* Hero */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.7)), url('https://source.unsplash.com/random');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      color: #fff;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      color: var(--accent);
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Portfolio */
+    .portfolio {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .portfolio-item {
+      background-color: #111;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      border-radius: 10px;
+    }
+
+    .portfolio-item:hover {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transform: translateY(-10px);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .portfolio-item h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    /* Blog */
+    .blog {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 2rem;
+    }
+
+    .blog-post {
+      background-color: #111;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      border-radius: 10px;
+    }
+
+    .blog-post:hover {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transform: translateY(-10px);
+    }
+
+    .blog-post img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .blog-post h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--bg);
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.1rem;
+      position: sticky;
+      bottom: 0;
+      z-index: 1000;
+      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer .socials {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer .socials a {
+      font-size: 1.5rem;
+    }
+
+    .footer .socials a:hover {
+      color: var(--accent);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .portfolio-item:hover h3,
+    .blog-post:hover h3 {
+      color: var(--accent);
+    }
+
+    a {
+      transition: all 0.3s ease-in-out;
+    }
+
+    .portfolio-item img,
+    .blog-post img {
+      position: relative;
+    }
+
+    .portfolio-item img::after,
+    .blog-post img::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .portfolio-item:hover img::after,
+    .blog-post:hover img::after {
+      opacity: 1;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+
+    .footer .socials a {
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .nav,
+    .footer,
+    .portfolio-item,
+    .blog-post {
+      background-image: linear-gradient(145deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+    }
+
+    .hero div {
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Add this style in your CSS */
+    @keyframes gradient-bg {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .hero {
+      /* Replace the existing background property with this */
+      background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.7)), linear-gradient(270deg, #E86A20, #f5a571, #E86A20);
+      background-size: 200% 200%;
+      animation: gradient-bg 12s ease infinite;
+    }
+
+    .tilt {
+      transform-style: preserve-3d;
+    }
+
+    .tilt:hover {
+      transform: translateY(-10px) rotateX(5deg);
+    }
+
+    .portfolio-item:hover,
+    .blog-post:hover {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transform: translateY(-10px) scale(1.02);
+    }
+
+    .portfolio-item,
+    .blog-post {
+      background-color: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      /* Increase blur for better glassmorphism */
+      border: 2px solid var(--glass-border);
+      /* Increase border thickness */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /* Add a subtle box shadow */
+      border-radius: 10px;
+      /* Add border-radius for rounded corners */
+      padding: 20px;
+      /* Add padding to improve the overall look */
+      position: relative;
+      /* Position relative for glowing text */
+    }
+
+    .hero #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .portfolio-item:hover h3,
+    .blog-post:hover h3 {
+      color: var(--accent);
+      text-shadow: 0 0 10px var(--accent),
+        /* You can change this to the desired hover glow color */
+        0 0 20px var(--accent),
+        0 0 30px var(--accent),
+        0 0 40px var(--accent);
+      transition: text-shadow 0.3s ease-in-out;
+      /* You can adjust the duration and easing of the transition */
+    }
+
+    .glowing-text {
+      color: #fff;
+      /* You can change this to the desired text color */
+      text-shadow: 0 0 10px #fff,
+        /* You can change this to the desired default glow color */
+        0 0 20px #fff,
+        0 0 30px #fff,
+        0 0 40px #fff;
+    }
+
+    .nav ul li {
+      transform: translateY(10px);
+      opacity: 0;
+      animation: nav-item 0.6s ease-out forwards;
+    }
+
+    @keyframes nav-item {
+      0% {
+        transform: translateY(10px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    }
+
+
+
+    .blended-text {
+      font-size: 1.4rem;
+      color: rgba(255, 255, 255, 0.5);
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease-in-out;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .blended-text:hover {
+      color: rgba(255, 255, 255, 1);
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+      transform: scale(1.05);
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content {
+      position: relative;
+      background-color: var(--glass-bg);
+      margin: 15% auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 600px;
+      border: 2px solid var(--glass-border);
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(15px);
+    }
+
+    .modal-image {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .close {
+      color: var(--text);
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid var(--text);
+      margin: 20px 0;
+    }
+
+    .typewriter {
+      overflow: hidden;
+      border-right: 0.15em solid var(--text);
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink-caret {
+
+      from,
+      to {
+        border-color: transparent;
+      }
+
+      50% {
+        border-color: var(--text);
+      }
+    }
+
+    .modal-text {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    /* Custom and minimalist modal scrollbar */
+    .modal::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .modal::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .modal::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 5px;
+    }
+
+    .modal::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    /* Custom and minimalist main site scrollbar */
+    body::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    body::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    body::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 5px;
+    }
+
+    body::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    .portfolio-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .portfolio-item {
+      flex-basis: calc(25% - 20px);
+      /* This will make 4 items fit in a row with a small margin */
+      margin-bottom: 20px;
+    }
+
+    .line-divider {
+      width: 100%;
+      height: 50px;
+      overflow: hidden;
+      margin: 3rem 0;
+      position: relative;
+    }
+
+    .wave-pattern {
+      position: absolute;
+      top: -25px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      fill: url(#wave-gradient);
+      stroke: none;
+      filter: drop-shadow(0 0 8px var(--accent));
+    }
+
+    /* Wave Gradient */
+    .wave-gradient {
+      position: absolute;
+      top: -25px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+    }
+
+
+    #about-me {
+  margin: 50px 0;
+  text-align: center;
+  position: relative;
+}
+
+    .about-me-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .about-me-image-wrapper {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+
+    .about-me-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s ease;
+    }
+
+    .about-me-image:hover {
+      transform: scale(1.1);
+    }
+
+    .image-overlay {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, var(--accent) 0%, transparent 100%);
+      opacity: 0;
+      border-radius: 50%;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+
+    .about-me-image:hover~.image-overlay {
+      opacity: 0.2;
+    }
+
+    .about-me-text {
+      text-align: left;
+      max-width: 600px;
+      font-size: 18px;
+      position: relative;
+    }
+
+    .about-me-text p {
+      margin-bottom: 20px;
+    }
+
+    .about-me-text a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .about-me-text a:hover {
+      color: var(--subtle-accent);
+    }
+
+    .experiment {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--subtle-accent);
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translateY(-100%);
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .experiment:hover {
+      color: var(--accent);
+    }
+
+    .about-me-image-wrapper::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(145deg, var(--accent) 0%, var(--subtle-accent) 100%);
+      opacity: 0.1;
+      z-index: -2;
+    }
+
+    .about-me-text::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120%;
+      height: 100%;
+      background: linear-gradient(145deg, var(--accent) 0%, var(--subtle-accent) 100%);
+      opacity: 0.05;
+      transform: translate(-50%, -50%) rotate(10deg);
+      z-index: -1;
+    }
+
+    @media screen and (max-width: 767px) {
+      .about-me-content {
+        flex-direction: column;
+      }
+
+      .about-me-text {
+        text-align: center;
+      }
+
+      .experiment {
+        transform: translateY(-100%) translateX(-50%);
+        left: 50%;
+        right: auto;
+      }
+    }
+
+    .title-container {
+  display: inline-block;
+  position: relative;
+  padding: 1rem;
+  background: linear-gradient(145deg, rgba(2, 19, 250, 0.035) 0%, rgba(250, 125, 50, 0.035) 100%);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  margin-bottom: 1rem;
+  transform: rotate(3deg);
+}
+
+.title-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 105%;
+  background: linear-gradient(145deg, #ffffff, #ffffff);
+  opacity: 0.00000001;
+  z-index: -1;
+  border-radius: 10px;
+}
+
+.glow {
+  position: relative;
+  color: var(--accent);
+  text-shadow: 0 0 10px var(--accent), 0 0 20px var(--subtle-accent), 0 0 30px var(--subtle-accent), 0 0 40px var(--subtle-accent);
+}
+
+.about-me-text {
+  text-align: left;
+  max-width: 600px;
+  font-size: 18px;
+  position: relative;
+}
+
+
+  </style>
+  <title>Personal Portfolio</title>
+</head>
+
+<body>
+  <nav class="nav">
+    <a href="#">billy_bob151</a>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <section class="hero">
+    <div class="blended-text">
+      <p>“All girls are lesbians when you point a gun at them”<br>- Peter Griffin</p>
+    </div>
+
+    <div id="particles-js"></div>
+    <h1>tommy</h1>
+    <p>Professional Goober &amp; Plane Crazy Professional</p>
+    </div>
+  </section>
+  <section class="portfolio">
+    <div class="portfolio-container">
+      <div class="portfolio-item" data-aos="fade-up" data-modal="1">
+        <img src="https://media.tenor.com/6GWnuyfU1KEAAAAd/apfel-stift.gif" alt="Project Image">
+        <h3 class="glowing-text">the pen pineapple apple pen guy made squid games</h3>
+      </div>
+      <div class="portfolio-item" data-aos="fade-up" data-modal="2">
+        <img src="https://media.tenor.com/fljFVhgRer0AAAAC/kim-sangwoo-sangwoo.gif" alt="Project Image">
+        <h3 class="glowing-text">home sang young from the squid games</h3>
+      </div>
+      <div class="portfolio-item" data-aos="fade-up" data-modal="3">
+        <img src="https://media.tenor.com/QzJzI3kNmDAAAAAC/lick-peter-griffin.gif" alt="Project Image">
+        <h3 class="glowing-text">peter JamBulskey miffin</h3>
+      </div>
+      <div class="portfolio-item" data-aos="fade-up" data-modal="4">
+        <img src="https://media.tenor.com/SYqHmem6DdIAAAAd/young-sheldon-sheldon-cooper.gif" alt="Project Image">
+        <h3 class="glowing-text">young sheldon in portueguese</h3>
+      </div>
+      <div class="portfolio-item" data-aos="fade-up" data-modal="5">
+        <img src="https://media.tenor.com/5tb1zr2vhW8AAAAC/g%C4%B1rtlak-m%C3%BCzi%C4%9Fi-g%C4%B1rtlak.gif"
+          alt="Project Image">
+        <h3 class="glowing-text">mongolian throat singaling</h3>
+      </div>
+    </div>
+  </section>
+
+  <div class="line-divider">
+    <svg class="wave-pattern" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:var(--accent);stop-opacity:1" />
+          <stop offset="100%" style="stop-color:var(--subtle-accent);stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      <path d="M0,50 Q50,0 100,50 Q50,100 0,50" />
+    </svg>
+  </div>
+
+  <section id="about-me">
+    <div class="title-container">
+      <h2 class="glow">About Me</h2>
+      <div class="about-me-content">
+        <div class="about-me-image-wrapper">
+          <img src="https://cdn.discordapp.com/attachments/1084998146070937621/1104474239957991485/IMG_0557.jpg"
+            alt="Your Name" class="about-me-image" />
+          <div class="image-overlay"></div>
+        </div>
+        <div class="about-me-text">
+          <span class="experiment">Experimental</span>
+          <p>
+            Hi, my name is [Your Name], and I'm a [Your Profession]. I have been
+            working in this field for [number of years] years and have acquired
+            valuable skills and experiences that have allowed me to grow as a
+            professional.
+          </p>
+          <p>
+            I enjoy [hobbies or interests], which has helped me develop a strong
+            work-life balance. I believe that this balance is key to maintaining
+            productivity and overall happiness in life.
+          </p>
+          <p>
+            If you'd like to learn more about my work or get in touch with me,
+            please feel free to explore the rest of my website or contact me through <a
+              href="mailto:your-email@example.com">email</a> or via my social media profiles.
+          </p>
+        </div>
+      </div>
+  </section>
+
+
+
+
+
+  <div class="modal" id="modal-1">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="https://media.tenor.com/dvVBSB3Rc1UAAAAC/oceanmam-squid-game.gif" alt="Project Image"
+        class="modal-image">
+      <hr>
+      <div class="modal-text">
+        <p class="typewriter">
+          It was a dark and stormy night when the legendary Pen <br>Pineapple Apple Pen (PPAP) guy came up with an idea
+          that <br>would shake the world to its very core. He had been searching <br>for something to top his viral hit
+          and after weeks of <br>brainstorming, the idea for a twisted game of survival emerged <br>from his mind. And
+          so, with the help of his team, he created <br>Squid Games.
+
+          The world was astounded by this new creation <br>and the popularity of the games soared. People from all over
+          <br>the world flocked to compete for the ultimate prize. Little did <br>they know that the PPAP guy had more
+          sinister plans in mind.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-2">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="https://media.tenor.com/Uhu0PqYmjl4AAAAd/squid-game.gif" alt="Project Image" class="modal-image">
+      <hr>
+      <div class="modal-text">
+        <p class="typewriter">Home Sang-woo is a character in the Netflix series <br>"Squid Game." He is portrayed as a
+          highly intelligent <br>and ruthless businessman who is willing to do whatever it <br>takes to get ahead in
+          life. Despite his outward confidence <br>and success, Home is plagued by personal demons <br>and struggles
+          with feelings of loneliness and emptiness.
+
+          <br>Throughout the series, Home is one of the most prominent <br>players in the deadly game, using his
+          intellect and cunning to <br>manipulate his opponents and secure his own survival. <br>He quickly forms an
+          alliance with the protagonist.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-3">
+    <div class="modal-content">
+      <img
+        src="https://th.bing.com/th/id/R.c373256df559bbdd7dd4f4c947edab58?rik=FJKN1q7V%2f7fs%2fA&riu=http%3a%2f%2fimages.wikia.com%2fvillains%2fimages%2fc%2fc2%2fPeter_Griffin.png&ehk=zFTfJwSBIRx6Kh010UDQYgWIoFshk7dHglZYcSMWIqk%3d&risl=&pid=ImgRaw&r=0"
+        alt="Project Image" class="modal-image">
+      <hr>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-4">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="https://media.tenor.com/CPWTPLroHMgAAAAC/young-sheldon-yes.gif" alt="Project Image" class="modal-image">
+      <hr>
+      <div class="modal-text">
+        <p class="typewriter">watch young sheldon in portueguese.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-5">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="https://media.tenor.com/InCh1Jd9DxYAAAAC/mongolian.gif" alt="Project Image" class="modal-image">
+      <hr>
+      <div class="modal-text">
+        <p class="typewriter">mmmmmmbadayedayo</p>
+      </div>
+    </div>
+  </div>
+
+
+  <footer class="footer">
+    <div>&copy; 2023 Goober All rights reserved.</div>
+    <div class="socials">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="http://discordapp.com/users/677707805347545089"><i class="fab fa-discord"></i></a>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <script>
+
+    document.querySelectorAll('.portfolio-item').forEach(function (item) {
+      item.addEventListener('click', function () {
+        const modalId = this.getAttribute('data-modal');
+        const modal = document.getElementById(`modal-${modalId}`);
+        modal.style.display = 'block';
+      });
+    });
+
+    document.querySelectorAll('.close').forEach(function (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        const modal = closeBtn.closest('.modal');
+        modal.style.display = 'none';
+      });
+    });
+
+
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.pageYOffset;
+      const parallaxSpeed = 0.5;
+      document.querySelector('.hero').style.backgroundPositionY = `${scrollPosition * parallaxSpeed}px`;
+    });
+
+    // Add any custom JavaScript here, such as smooth scrolling, hover effects, loading animations, etc.
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    const blogPosts = document.querySelectorAll('.blog-post');
+
+    portfolioItems.forEach(item => {
+      item.addEventListener('mouseover', () => {
+        item.style.transform = 'translateY(-10px)';
+        item.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.3)';
+      });
+
+      item.addEventListener('mouseout', () => {
+        item.style.transform = 'translateY(0)';
+        item.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+      });
+    });
+
+    blogPosts.forEach(post => {
+      post.addEventListener('mouseover', () => {
+        post.style.transform = 'translateY(-10px)';
+        post.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.3)';
+      });
+
+      post.addEventListener('mouseout', () => {
+        post.style.transform = 'translateY(0)';
+        post.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+      });
+    });
+
+    document.querySelectorAll('.nav a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const target = event.target.getAttribute('href');
+        document.querySelector(target).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    });
+
+    const parallaxEls = document.querySelectorAll('.parallax');
+
+    window.addEventListener('mousemove', (e) => {
+      let x = e.clientX / window.innerWidth;
+      let y = e.clientY / window.innerHeight;
+      parallaxEls.forEach(el => {
+        let depth = el.getAttribute('data-depth');
+        let moveX = (x * depth * 2) - depth;
+        let moveY = (y * depth * 2) - depth;
+        el.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
+      });
+    });
+
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: '#ffffff' },
+        shape: { type: 'circle', stroke: { width: 0, color: '#000000' } },
+        opacity: { value: 0.5, random: false, anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false } },
+        size: { value: 3, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
+        line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 6, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
+        modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } }
+      },
+      retina_detect: true
+    });
+
+    AOS.init();
+
+  </script>
+
+</body>
+
+</html>
